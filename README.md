@@ -2,6 +2,9 @@
 
 A pure go library to handle MySQL network protocol and replication.
 
+## 注释版
+增加注释来学习代码。by: leftpocket
+
 ## Call for Committer/Maintainer
 
 Sorry that I have no enough time to maintain this project wholly, if you like this project and want to help me improve it continuously, please contact me through email (siddontang@gmail.com).

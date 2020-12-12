@@ -50,6 +50,7 @@ func main() {
 	cfg.Dump.ExecutionPath = *mysqldump
 	cfg.Dump.DiscardErr = false
 
+	//用来创建新的Canal并设置EventHandler, 在Eventhandler里面处理Rows的变化。
 	c, err := canal.NewCanal(cfg)
 	if err != nil {
 		fmt.Printf("create canal err %v", err)
@@ -80,6 +81,7 @@ func main() {
 		Pos:  uint32(*startPos),
 	}
 
+	//这里来解析mysql binlog把变化放入chan里面，供canal从chan里面取数据。
 	go func() {
 		err = c.RunFrom(startPos)
 		if err != nil {
